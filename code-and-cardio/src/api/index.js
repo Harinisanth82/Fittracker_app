@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API=axios.create({
-    baseURL: "http://localhost:8080/api",
+  baseURL: "https://fittracker-app.onrender.com/api/",
 });
 export const userSignup=async(data)=>API.post("/user/signup",data);
 export const userSignin=async(data)=>API.post("/user/signin",data);
