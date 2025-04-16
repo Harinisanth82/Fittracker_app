@@ -2,7 +2,6 @@ import { ThemeProvider, styled } from "styled-components"
 import { lightTheme } from "./utils/Themes";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Authentication from "./pages/Authentication";
-import { useState } from "react";
 import NavBar from "./components/NavBar";
 import  Dashboard  from "./pages/Dashboard";
 import Tutorials from "./pages/Tutorials";

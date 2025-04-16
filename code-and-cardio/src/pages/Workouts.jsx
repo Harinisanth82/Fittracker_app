@@ -76,16 +76,18 @@ const Workouts = () => {
   const [loading,setLoading]=useState(false);
   const [date,setData]=useState("");
 
-  const getTodaysWorkout=async()=>{
-      setLoading(true);
-      const token=localStorage.getItem("fittrack-app-token");
-      await getWorkouts(token,date?`date=${date}`:"").then((res)=>{
-        setTodaysWorkouts(res?.data?.todaysWorkouts)
-        setLoading(false);
-    })}
-  useEffect(()=>{
+  const getTodaysWorkout = useCallback(async () => {
+    setLoading(true);
+    const token = localStorage.getItem("fittrack-app-token");
+    await getWorkouts(token, date ? `date=${date}` : "").then((res) => {
+      setTodaysWorkouts(res?.data?.todaysWorkouts);
+      setLoading(false);
+    });
+  }, [date]);
+
+  useEffect(() => {
     getTodaysWorkout();
-  },[date]);
+  }, [getTodaysWorkout]); 
 
   return (
     <Container>
